@@ -3,8 +3,8 @@ ayutenn.customSelect = {};
 
 ayutenn.customSelect.setValue = function(selectId, value) {
     const selectValueElement = document.querySelector(`#${selectId}>input`);
-    const selectOptionElement = document.querySelector(`#${selectId} .select-option[data-value=${value}]`);
-    const selectHolderTextElement = document.querySelector(`#${selectId} .select-holder-text`);
+    const selectOptionElement = document.querySelector(`#${selectId} .select-option[data-value="${value}"]`);
+    const selectHolderTextElement = document.querySelector(`#${selectId} .select-holder-content`);
 
     if(selectOptionElement){
         // 設定値を、holderにセット

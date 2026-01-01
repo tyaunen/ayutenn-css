@@ -119,10 +119,15 @@
         <h2>Custom Select</h2>
         <p>
             選択肢内にHTMLを記述できる、カスタムセレクトボックスを作成できます。<br>
+            選択した値は、<code>.custom-select</code>直下に含まれるinput要素のvalue属性に格納されます。<br>
             option-detailは省略可能です。<br>
         </p>
         <p>
             input要素が標準で受けられるサポートを受けられない、スマートフォン対応が難しい、アクセシビリティ対応がされていないといった問題点が山積みなので、必要以上に使用しないようにしましょう。
+        </p>
+        <p>
+            <strong>また、ユーザーの入力データから選択肢を作成するような使い方では、必ずXSS対策を行ってください。</strong><br>
+            多分ここで忘れるのありがちだと思う。
         </p>
         <div class="demo-area">
             <div id="demo-select" class="custom-select">
@@ -158,6 +163,37 @@
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
+    </section>
+
+    <section>
+        <h2>JavaScript API</h2>
+        <p>JavaScript から値をセットするには <code>ayutenn.customSelect.setValue()</code> を使用します。</p>
+        <div class="demo-area">
+            <div class="flex-row g-2 mb-3">
+                <button onclick="ayutenn.customSelect.setValue('js-api-select', '1')">🍇 ぶどうを選択</button>
+                <button onclick="ayutenn.customSelect.setValue('js-api-select', '2')">🍌 バナナを選択</button>
+            </div>
+<pre><code class="language-javascript">// setValue(selectId, value)
+// selectId: custom-selectのdiv要素のID
+// value: 選択するオプションのdata-value値
+ayutenn.customSelect.setValue('js-api-select', '1');</code></pre>
+            <div id="js-api-select" class="custom-select mt-3">
+                <input type="hidden" name="js-api-val">
+                <div class="select-holder">
+                    <div class="select-holder-content">選択してください</div>
+                </div>
+                <div class="select-options">
+                    <div class="select-option" data-value="1">
+                        <div class="option-header">🍇 ぶどう</div>
+                        <div class="option-detail">紫色でジューシー</div>
+                    </div>
+                    <div class="select-option" data-value="2">
+                        <div class="option-header">🍌 バナナ</div>
+                        <div class="option-detail">黄色くて栄養満点</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <script src="assets/js/ayutenn/customSelect.js"></script>

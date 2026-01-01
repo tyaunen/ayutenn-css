@@ -82,6 +82,51 @@
 &lt;/div&gt;</code></pre>
     </section>
 
+    <section>
+        <h2>Accordion JavaScript API</h2>
+        <p>JavaScript からアコーディオンを操作するには <code>ayutenn.accordion.open()</code> と <code>ayutenn.accordion.close()</code> を使用します。</p>
+        <div class="demo-area">
+            <div class="flex-row g-2 mb-3">
+                <button onclick="ayutenn.accordion.open(document.querySelector('#js-api-acc'))">アコーディオンを開く</button>
+                <button onclick="ayutenn.accordion.close(document.querySelector('#js-api-acc'))">アコーディオンを閉じる</button>
+            </div>
+<pre><code class="language-javascript">// open(ele) - アコーディオンを開く
+// close(ele) - アコーディオンを閉じる
+// ele: アコーディオンのDOM要素
+
+const accordion = document.querySelector('#js-api-acc');
+ayutenn.accordion.open(accordion);
+ayutenn.accordion.close(accordion);</code></pre>
+            <div id="js-api-acc" class="accordion mt-3">
+                <div class="accordion-content">このアコーディオンはJavaScript APIで操作されます。</div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Modal JavaScript API</h2>
+        <p>JavaScript からモーダルを操作するには <code>ayutenn.modal.open()</code> と <code>ayutenn.modal.close()</code> を使用します。</p>
+        <div class="demo-area">
+            <div class="flex-row g-2">
+                <button onclick="ayutenn.modal.open(document.querySelector('#js-api-modal'))">モーダルを開く</button>
+            </div>
+<pre><code class="language-javascript">// open(modal) - モーダルを開く
+// close(modal) - モーダルを閉じる
+// modal: モーダルのDOM要素
+
+const modal = document.querySelector('#js-api-modal');
+ayutenn.modal.open(modal);
+ayutenn.modal.close(modal);</code></pre>
+            <div id="js-api-modal" class="modal">
+                <div class="modal-content">
+                    <h3>JavaScript API Modal</h3>
+                    <p>このモーダルはJavaScript APIで操作されます。</p>
+                    <button data-close-button>閉じる</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script src="assets/js/ayutenn/accordion.js"></script>
     <script src="assets/js/ayutenn/modal.js"></script>
 </body>
