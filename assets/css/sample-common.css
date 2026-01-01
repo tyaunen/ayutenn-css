@@ -1,0 +1,164 @@
+﻿/*----------------------------------------------------------
+ * Sample Page Common Styles
+ * サンプルページ共通スタイル
+ *---------------------------------------------------------*/
+
+/* Navigation Header */
+.sample-nav {
+    background: var(--ay-bg-secondary);
+    border: 1px solid var(--ay-border-color);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.sample-nav a {
+    color: var(--ay-text-secondary);
+    text-decoration: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.sample-nav a:hover {
+    background: var(--ay-bg-hover);
+    color: var(--ay-text-primary);
+}
+
+.sample-nav a.active {
+    background: var(--ay-primary);
+    color: var(--ay-primary-contrast);
+}
+
+.sample-nav .nav-home {
+    font-weight: 600;
+    color: var(--ay-primary);
+}
+
+/* Page Layout */
+
+body {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: var(--ay-bg-primary);
+    color: var(--ay-text-primary);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    color: var(--ay-primary);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--ay-text-muted);
+    margin-bottom: 2rem;
+}
+
+/* Section */
+section {
+    margin-bottom: 2rem;
+    background: var(--ay-bg-secondary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid var(--ay-border-color);
+}
+
+h2 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: var(--ay-text-primary);
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+.section-desc {
+    color: var(--ay-text-muted);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Demo Area */
+.demo-area {
+    border: 1px solid var(--ay-border-color);
+    padding: 1rem;
+    border-radius: 8px;
+    background: var(--ay-bg-tertiary);
+    margin-bottom: 1rem;
+}
+
+/* Code Block */
+pre {
+    background: var(--ay-bg-primary);
+    color: var(--ay-text-primary);
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 0;
+    font-size: 0.85rem;
+    font-family: 'Consolas', 'Monaco', monospace;
+    border: 1px solid var(--ay-border-color);
+}
+
+pre code {
+    color: var(--ay-success-text);
+}
+
+/* Demo Boxes */
+.demo-box {
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.demo-no-padding-box-light {
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+    background: var(--ay-bg-tertiary);
+    border: 1px solid var(--ay-border-color);
+    color: var(--ay-text-primary);
+}
+
+.demo-box-primary {
+    background: var(--ay-primary);
+    color: var(--ay-primary-contrast);
+}
+
+.demo-box-secondary {
+    background: var(--ay-success);
+    color: white;
+}
+
+.demo-box-accent {
+    background: var(--ay-warning);
+    color: var(--ay-text-inverse);
+}
+
+.demo-box-light {
+    background: var(--ay-bg-tertiary);
+    border: 1px solid var(--ay-border-color);
+    color: var(--ay-text-primary);
+}
+
+/* Links */
+a {
+    color: var(--ay-primary);
+}
+
+code {
+    background-color: #ccc2;
+    padding: 2px 4px;
+    margin: 0 2px;
+    border-radius: 2px;
+}

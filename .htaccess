@@ -1,0 +1,8 @@
+# Redirect to sample.php when accessing directory root
+DirectoryIndex sample.php
+
+# If DirectoryIndex doesn't work, use mod_rewrite
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^$ sample.php [L]
+</IfModule>
