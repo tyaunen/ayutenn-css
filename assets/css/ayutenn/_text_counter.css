@@ -1,0 +1,50 @@
+/*----------------------------------------------------------
+ * Text Counter
+ *---------------------------------------------------------*/
+
+/* ラッパー */
+.text-counter-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.text-counter-wrapper textarea {
+    width: 100%;
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* カウンター表示 */
+.text-counter {
+    font-size: 0.85rem;
+    color: var(--ay-text-secondary);
+    text-align: right;
+}
+
+/* 全体超過（文字数または行数のいずれかが超過）*/
+.text-counter.exceeded {
+    color: var(--ay-error);
+}
+
+/* 文字数部分 */
+.text-counter .char-count {
+    transition: color 0.2s ease;
+}
+
+/* 文字数部分の超過 */
+.text-counter .char-count.exceeded {
+    color: var(--ay-error);
+    font-weight: 600;
+}
+
+/* 行数部分 */
+.text-counter .line-count {
+    transition: color 0.2s ease;
+}
+
+/* 行数部分の超過 */
+.text-counter .line-count.exceeded {
+    color: var(--ay-error);
+    font-weight: 600;
+}

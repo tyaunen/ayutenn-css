@@ -196,6 +196,211 @@ ayutenn.customSelect.setValue('js-api-select', '1');</code></pre>
         </div>
     </section>
 
+    <section>
+        <h2>Text Counter</h2>
+        <p>
+            textarea や input に入力された文字数・行数をリアルタイムでカウント表示するコンポーネントです。<br>
+            文字数のみ、行数のみ、または両方の表示が可能で、最大値を設定して超過時に色を変えることもできます。
+        </p>
+
+        <h3>基本的な使い方（文字数＋行数）</h3>
+        <div class="demo-area">
+            <div class="text-counter-wrapper">
+                <textarea id="counter-demo-1" placeholder="ここに入力してください..."></textarea>
+                <div id="counter-display-1" class="text-counter"></div>
+            </div>
+        </div>
+<pre><code class="language-html">&lt;div class="text-counter-wrapper"&gt;
+    &lt;textarea id="counter-demo-1"&gt;&lt;/textarea&gt;
+    &lt;div id="counter-display-1" class="text-counter"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+new ayutenn.TextCounter({
+    targetId: 'counter-demo-1',
+    counterId: 'counter-display-1'
+});
+&lt;/script&gt;</code></pre>
+        <hr>
+        <h3>文字数のみ表示</h3>
+        <div class="demo-area">
+            <div class="text-counter-wrapper">
+                <textarea id="counter-demo-2" placeholder="文字数だけカウントします..."></textarea>
+                <div id="counter-display-2" class="text-counter"></div>
+            </div>
+        </div>
+<pre><code class="language-javascript">new ayutenn.TextCounter({
+    targetId: 'counter-demo-2',
+    counterId: 'counter-display-2',
+    showLineCount: false,
+    format: '{chars}文字'
+});</code></pre>
+
+        <hr>
+        <h3>行数のみ表示</h3>
+        <div class="demo-area">
+            <div class="text-counter-wrapper">
+                <textarea id="counter-demo-3" placeholder="行数だけカウントします...&#10;改行してみてください"></textarea>
+                <div id="counter-display-3" class="text-counter"></div>
+            </div>
+        </div>
+<pre><code class="language-javascript">new ayutenn.TextCounter({
+    targetId: 'counter-demo-3',
+    counterId: 'counter-display-3',
+    showCharCount: false,
+    format: '{lines}行'
+});</code></pre>
+
+        <hr>
+        <h3>最大値制限付き（個別色変更）</h3>
+        <p>
+            文字数・行数それぞれに最大値を設定すると、超過した項目だけ色が変わります。<br>
+            下の例では、50文字・5行を超えると該当部分が赤く表示されます。
+        </p>
+        <div class="demo-area">
+            <div class="text-counter-wrapper">
+                <textarea id="counter-demo-4" placeholder="50文字・5行を超えると警告..."></textarea>
+                <div id="counter-display-4" class="text-counter"></div>
+            </div>
+        </div>
+<pre><code class="language-javascript">new ayutenn.TextCounter({
+    targetId: 'counter-demo-4',
+    counterId: 'counter-display-4',
+    maxChars: 50,
+    maxLines: 5
+});</code></pre>
+
+        <hr>
+        <h3>カスタムフォーマット</h3>
+        <div class="demo-area">
+            <div class="text-counter-wrapper">
+                <textarea id="counter-demo-5" placeholder="カスタムフォーマットの例..."></textarea>
+                <div id="counter-display-5" class="text-counter"></div>
+            </div>
+        </div>
+<pre><code class="language-javascript">new ayutenn.TextCounter({
+    targetId: 'counter-demo-5',
+    counterId: 'counter-display-5',
+    maxChars: 100,
+    format: '文字: {chars} | 行: {lines}'
+});</code></pre>
+
+        <hr>
+        <h3>JavaScript API</h3>
+        <p>インスタンスから現在の値を取得できます。</p>
+<pre><code class="language-javascript">const counter = new ayutenn.TextCounter({
+    targetId: 'my-textarea',
+    counterId: 'my-counter'
+});
+
+// 現在の文字数を取得
+counter.getCharCount();
+
+// 現在の行数を取得
+counter.getLineCount();</code></pre>
+
+        <hr>
+        <h3>オプション一覧</h3>
+        <table style="width: 100%; border-collapse: collapse;">
+            <tr style="border-bottom: 1px solid var(--ay-border-color); background: var(--ay-bg-tertiary);">
+                <th style="text-align: left; padding: 0.5rem;">オプション</th>
+                <th style="text-align: left; padding: 0.5rem;">型</th>
+                <th style="text-align: left; padding: 0.5rem;">デフォルト</th>
+                <th style="text-align: left; padding: 0.5rem;">説明</th>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--ay-border-color);">
+                <td style="padding: 0.5rem;"><code>targetId</code></td>
+                <td style="padding: 0.5rem;"><code>string</code></td>
+                <td style="padding: 0.5rem;"><code>null</code></td>
+                <td style="padding: 0.5rem;">対象textarea/inputのID（必須）</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--ay-border-color);">
+                <td style="padding: 0.5rem;"><code>counterId</code></td>
+                <td style="padding: 0.5rem;"><code>string</code></td>
+                <td style="padding: 0.5rem;"><code>null</code></td>
+                <td style="padding: 0.5rem;">カウンター表示要素のID（必須）</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--ay-border-color);">
+                <td style="padding: 0.5rem;"><code>showCharCount</code></td>
+                <td style="padding: 0.5rem;"><code>boolean</code></td>
+                <td style="padding: 0.5rem;"><code>true</code></td>
+                <td style="padding: 0.5rem;">文字数を表示するか</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--ay-border-color);">
+                <td style="padding: 0.5rem;"><code>showLineCount</code></td>
+                <td style="padding: 0.5rem;"><code>boolean</code></td>
+                <td style="padding: 0.5rem;"><code>true</code></td>
+                <td style="padding: 0.5rem;">行数を表示するか（inputの場合は自動でfalse）</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--ay-border-color);">
+                <td style="padding: 0.5rem;"><code>maxChars</code></td>
+                <td style="padding: 0.5rem;"><code>number/string</code></td>
+                <td style="padding: 0.5rem;"><code>null</code></td>
+                <td style="padding: 0.5rem;">最大文字数。<code>'auto'</code>でmaxlength属性から取得</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--ay-border-color);">
+                <td style="padding: 0.5rem;"><code>maxLines</code></td>
+                <td style="padding: 0.5rem;"><code>number</code></td>
+                <td style="padding: 0.5rem;"><code>null</code></td>
+                <td style="padding: 0.5rem;">最大行数（超過時に色変更）</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--ay-border-color);">
+                <td style="padding: 0.5rem;"><code>format</code></td>
+                <td style="padding: 0.5rem;"><code>string</code></td>
+                <td style="padding: 0.5rem;"><code>'{chars}文字 / {lines}行'</code></td>
+                <td style="padding: 0.5rem;">表示フォーマット</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--ay-border-color);">
+                <td style="padding: 0.5rem;"><code>onUpdate</code></td>
+                <td style="padding: 0.5rem;"><code>function</code></td>
+                <td style="padding: 0.5rem;"><code>null</code></td>
+                <td style="padding: 0.5rem;">更新時コールバック</td>
+            </tr>
+            <tr>
+                <td style="padding: 0.5rem;"><code>onExceed</code></td>
+                <td style="padding: 0.5rem;"><code>function</code></td>
+                <td style="padding: 0.5rem;"><code>null</code></td>
+                <td style="padding: 0.5rem;">制限超過時コールバック</td>
+            </tr>
+        </table>
+    </section>
+
     <script src="assets/js/ayutenn/customSelect.js"></script>
+    <script src="assets/js/ayutenn/textCounter.js"></script>
+    <script>
+        // Text Counter デモ初期化
+        new ayutenn.TextCounter({
+            targetId: 'counter-demo-1',
+            counterId: 'counter-display-1'
+        });
+
+        new ayutenn.TextCounter({
+            targetId: 'counter-demo-2',
+            counterId: 'counter-display-2',
+            showLineCount: false,
+            format: '{chars}文字'
+        });
+
+        new ayutenn.TextCounter({
+            targetId: 'counter-demo-3',
+            counterId: 'counter-display-3',
+            showCharCount: false,
+            format: '{lines}行'
+        });
+
+        new ayutenn.TextCounter({
+            targetId: 'counter-demo-4',
+            counterId: 'counter-display-4',
+            maxChars: 50,
+            maxLines: 5
+        });
+
+        new ayutenn.TextCounter({
+            targetId: 'counter-demo-5',
+            counterId: 'counter-display-5',
+            maxChars: 100,
+            format: '文字: {chars} | 行: {lines}'
+        });
+    </script>
 </body>
 </html>
