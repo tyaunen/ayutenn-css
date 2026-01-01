@@ -19,6 +19,9 @@
             何でも公開するのが好きだから公開されているし、ライセンスとしてはCC0ですが、俺以外が使用することはまったく推奨しません。<br>
             ノーメンテナンス。ノーレスポンシビリティ。ノークオリティ。オーケイ？
         </p>
+        <p>
+            GitHub: <a href="https://github.com/tyaunen/ayutenn-css">https://github.com/tyaunen/ayutenn-css</a>
+        </p>
         <hr>
         <h2>機能</h2>
         <p>

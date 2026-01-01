@@ -14,7 +14,7 @@ ayutennフレームワークのためのCSS・JSライブラリです。
 ayutenn-cssは、一般的なCSSライブラリとヘッドレスCSSの中間に位置します。
 グリッドやモーダルなど「よくあるコンポーネント」を、上書きしやすい形の最低限のスタイルと一緒に提供します。
 
-GitHub: [https://tyaunen.moo.jp/ayutenn/css/](https://tyaunen.moo.jp/ayutenn/css/)
+ウェブページ: [https://tyaunen.moo.jp/ayutenn/css/](https://tyaunen.moo.jp/ayutenn/css/)
 
 ---
 
