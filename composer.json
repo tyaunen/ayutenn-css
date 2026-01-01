@@ -1,0 +1,16 @@
+{
+    "name": "tyaunen/ayutenn-css",
+    "description": "ayutennフレームワーク用のCSSおよびJavaScriptライブラリ。一般的なCSSライブラリとヘッドレスCSSの中間に位置し、よくあるコンポーネントを上書きしやすい形で提供します。",
+    "version": "1.0.0",
+    "type": "library",
+    "license": "CC0-1.0",
+    "authors": [
+        {
+            "name": "minoru otyauke"
+        }
+    ],
+    "require": {
+        "php": ">=8.0"
+    },
+    "minimum-stability": "dev"
+}
