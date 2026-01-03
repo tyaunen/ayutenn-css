@@ -36,6 +36,9 @@
   containerId: 'uploader',
   maxFileSize: 5 * 1024 * 1024,  // 5MB
   acceptedTypes: 'image/*',      // 画像のみ
+  params: {                      // 追加パラメータ（CSRFトークン等）
+    csrf_token: 'YOUR_CSRF_TOKEN'
+  },
   onUploadComplete: (file, response) => {
     console.log('Uploaded:', file.name);
   },
@@ -83,6 +86,12 @@
                 <td style="padding: 0.5rem;"><code>boolean</code></td>
                 <td style="padding: 0.5rem;"><code>true</code></td>
                 <td style="padding: 0.5rem;">複数ファイルの選択を許可するか</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--ay-border-color);">
+                <td style="padding: 0.5rem;"><code>params</code></td>
+                <td style="padding: 0.5rem;"><code>object</code></td>
+                <td style="padding: 0.5rem;"><code>{}</code></td>
+                <td style="padding: 0.5rem;">追加パラメータ（CSRFトークン等）をFormDataに追加して送信</td>
             </tr>
             <tr style="border-bottom: 1px solid var(--ay-border-color);">
                 <td style="padding: 0.5rem;"><code>onUploadComplete</code></td>

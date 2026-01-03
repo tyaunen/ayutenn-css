@@ -35,6 +35,9 @@ new ayutenn.FileUploader({
   maxFileSize: 5 * 1024 * 1024,  // 5MB
   acceptedTypes: 'image/*',      // 画像のみ
   multiple: true,
+  params: {                      // 追加パラメータ
+    csrf_token: 'YOUR_CSRF_TOKEN'
+  },
   onUploadComplete: (file, response) => {
     console.log('Uploaded:', file.name);
   },
@@ -53,6 +56,7 @@ new ayutenn.FileUploader({
 | `maxFileSize` | number | 5MB | 最大ファイルサイズ（バイト） |
 | `acceptedTypes` | string | null | 許可するMIMEタイプ |
 | `multiple` | boolean | true | 複数ファイル選択の許可 |
+| `params` | object | {} | 追加パラメータ（CSRFトークン等） |
 | `onUploadComplete` | function | null | 完了時コールバック |
 | `onError` | function | null | エラー時コールバック |
 
