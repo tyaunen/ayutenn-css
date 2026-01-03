@@ -13,6 +13,7 @@ ayutenn.FileUploader = class FileUploader {
             maxFileSize: 5 * 1024 * 1024, // デフォルト最大ファイルサイズ (5MB)
             acceptedTypes: null, // 許容するファイルタイプ (例: 'image/*')
             multiple: true, // 複数ファイルの許可
+            params: {}, // 追加パラメータ（CSRFトークン等）
             onUploadComplete: null, // アップロード完了時のコールバック
             onError: null // エラー発生時のコールバック
         }, options);
@@ -170,6 +171,13 @@ ayutenn.FileUploader = class FileUploader {
     uploadFile(file) {
         const formData = new FormData();
         formData.append('files[]', file);
+
+        // 追加パラメータをformDataに追加
+        if (this.options.params && typeof this.options.params === 'object') {
+            for (const [key, value] of Object.entries(this.options.params)) {
+                formData.append(key, value);
+            }
+        }
 
         const xhr = new XMLHttpRequest();
         xhr.open('POST', this.options.endpoint, true);
